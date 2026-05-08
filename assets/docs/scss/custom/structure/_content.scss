@@ -1,0 +1,469 @@
+// Docs main content
+//
+// _content.scss
+//
+
+:root {
+
+    --content-icon-color: var(--primary);
+    --content-icon-bg: var(--sidebar-icon-bg);
+    --content-icon-border: var(--sidebar-icon-bg);
+    --content-link-color: var(--primary);
+
+    --ordered-list-bg: var(--gray-300);
+    --ordered-list-color: var(--gray-800);
+    --blockquote-border-color: var(--gray-300);
+
+    --code-block-bg: #212d63;
+    --inline-code-bg: var(--gray-100);
+    --inline-code-border: 1px solid var(--gray-400);
+
+}
+
+[data-dark-mode] {
+
+    --content-icon-color: var(--primary-200);
+    --content-icon-bg: hsl(var(--primary-hsl), 0.15);
+    --content-icon-border: var(--primary-800);
+    --content-link-color: var(--primary-300);
+
+    --ordered-list-bg: var(--gray-700);
+    --ordered-list-color: var(--gray-200);
+    --blockquote-border-color: var(--primary-200);
+
+    --code-block-bg: var(--gray-900);
+    --inline-code-bg: var(--gray-800);
+    --inline-code-border: 1px solid var(--gray-600);
+
+}
+
+.docs-content {
+    order: 1;
+}
+
+// Links
+.docs-content .main-content a {
+    font-weight: 600;
+    color: var(--content-link-color);
+    &:hover {
+        text-decoration: underline 2px var(--primary-200);
+        text-underline-offset: 2.5px !important;
+        transition: 0s !important;
+    }
+    // &.anchor i {
+    //     transform: rotate(-45deg);
+    // }
+    code {
+        color: var(--content-link-color);
+    }
+}
+
+.docs-content .main-content {
+    #edit-this-page a,
+    #list-item a {
+        &:hover {
+            text-decoration: none !important;
+        }
+    }
+}
+
+.docs-content .main-content li {
+    color: var(--text-default);
+}
+
+.docs-content .main-content h1,
+.docs-content .main-content h2,
+.docs-content .main-content h3,
+.docs-content .main-content h4,
+.docs-content .main-content h5 {
+    font-weight: 700;
+    color: var(--body-color);
+}
+
+// 헤딩 크기 조정
+.docs-content .main-content h1 {
+    font-size: 2.0rem;  // 가장 큰 크기
+}
+
+.docs-content .main-content h2 {
+    font-size: 1.7rem;  // h1보다 작은 크기
+}
+
+.docs-content .main-content h3 {
+    font-size: 1.4rem;  // h2보다 작은 크기
+}
+
+.docs-content .main-content h4 {
+    font-size: 1.2rem;  // h3보다 작은 크기
+}
+
+.docs-content .main-content h5,
+.docs-content .main-content h6 {
+    font-size: 1.0rem;  // 기본 텍스트 크기
+}
+
+// 헤딩 크기 조정 종료
+.docs-content .content-title {
+    font-weight: 700;
+    align-self: center;
+}
+
+i {
+    &.title-icon {
+        width: 44px;
+        height: 44px;
+        color: var(--content-icon-color);
+        background-color: var(--content-icon-bg);
+        display: inline-flex !important;
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        // border: solid 1px var(--content-icon-border);
+        border-radius: 5px;
+
+        @media (max-width: 768px) {
+            align-self: auto;
+        }
+    }
+}
+
+.docs-content p {
+    &.lead {
+        color: var(--text-muted);
+        font-weight: 400;
+    }
+}
+
+
+@media (max-width: 1199px) {
+    .docs-content {
+        padding-left: calc(var(--bs-gutter-x) * 1.05);
+        padding-right: calc(var(--bs-gutter-x) * 1.05);
+
+        h2 {
+            margin-bottom: 1rem;
+        }
+
+        p {
+            &.lead {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+// Images
+.docs-content .main-content {
+    img,
+    svg {
+        max-width: 100%;
+        height: auto;
+    }
+    // External link icon
+    a svg {
+        vertical-align: middle;
+        padding-bottom: 0.25rem;
+        margin-left: 3px;
+    }
+}
+
+// Unordered List Styling
+.docs-content .main-content ul {
+    padding-left: 0;
+
+    > li {
+        position: relative;
+        padding-left: 32px;
+        // margin-bottom: 5px;
+    }
+
+    > li::before {
+        content: "";
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        left: 8px;
+        top: 10px;
+        border-radius: 30%;
+        background: var(--gray-500);
+    }
+}
+
+// Ordered List Styling
+.docs-content .main-content ol {
+    counter-reset: listitem;
+    > li {
+        counter-increment: listitem;
+        position: relative;
+        padding-left: 32px;
+    }
+
+    > li::before {
+        content: counter(listitem);
+        background: var(--ordered-list-bg);
+        color: var(--ordered-list-color);
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 10px;
+        text-align: center;
+        padding: 5px 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 5px;
+        position: absolute;
+        left: 0;
+        top: 3px;
+    }
+}
+
+// Universal List Styling
+.docs-content .main-content ol,
+.docs-content .main-content ul {
+    list-style: none;
+    line-height: 26px;
+}
+
+// Blockquote - Enhanced Info Box Style
+.docs-content .main-content blockquote {
+    margin: 1.5rem 0;
+    font-size: 1rem;
+    border: none;
+    border-left: 4px solid var(--primary);
+    border-radius: 0 12px 12px 0;
+    padding: 1.25rem 1.5rem;
+    background: linear-gradient(135deg, 
+        rgba(102, 126, 234, 0.08) 0%, 
+        rgba(102, 126, 234, 0.03) 100%);
+    box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.04),
+        0 4px 16px rgba(0, 0, 0, 0.02);
+    position: relative;
+    
+    // 강조 효과
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(180deg, var(--primary) 0%, var(--primary-300) 100%);
+        border-radius: 4px 0 0 4px;
+    }
+
+    p {
+        margin-bottom: 0.75rem;
+        line-height: 1.7;
+        color: var(--text-default);
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    strong {
+        color: var(--primary);
+        font-weight: 700;
+    }
+
+    // 첫 번째 단락 (보통 제목 역할) 강조
+    p:first-child strong:first-child {
+        font-size: 1.1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
+
+[data-dark-mode] .docs-content .main-content blockquote {
+    background: linear-gradient(135deg, 
+        rgba(102, 126, 234, 0.15) 0%, 
+        rgba(102, 126, 234, 0.05) 100%);
+    box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.2),
+        0 4px 16px rgba(0, 0, 0, 0.1);
+    
+    strong {
+        color: var(--primary-200);
+    }
+}
+
+// Code
+.docs-content .main-content div.highlight {
+    margin: 16px 0;
+    padding: $code-block-padding-top;
+    background: var(--code-block-bg);
+    border-radius: 4px;
+    pre {
+        padding: 0;
+    }
+}
+
+.docs-content .main-content code {
+    font-size: inherit;
+    // color: var(--text-default);
+    font-weight: 400;
+    padding: 1px 2px;
+    background: var(--inline-code-bg);
+    border: var(--inline-code-border);
+    border-radius: 4px;
+}
+
+.docs-content .main-content pre {
+    margin: 0;
+    // background-color: var(--code-block-bg) !important;
+    border-radius: 4px;
+    padding: $code-block-padding-top;
+
+    code {
+        // color: #f5fbff;
+        font-size: 0.8rem;
+        display: block;
+        // background: var(--code-block-bg);
+        border: none;
+        overflow-x: auto;
+        line-height: 1.5;
+        padding: 0 2.5rem 1.25rem 2.5rem;
+        tab-size: 4;
+        scrollbar-width: thin;
+        //scrollbar-color: transparent transparent;
+    }
+}
+
+// bold code
+.docs-content .main-content strong {
+    code {
+        font-weight: 700;
+    }
+}
+
+// Chroma Highlighter CSS
+.docs-content .main-content td pre {
+
+    code {
+        overflow-x: unset !important;
+    }
+}
+
+.docs-content .main-content .alert ul {
+    font-size: var(--font-size-sm);
+}
+
+// <figcaption>
+
+.docs-content figcaption {
+    font-size: small;
+}
+
+.docs-content .main-content pre,
+.docs-content .main-content code {
+  margin-bottom: 1.2rem; // 필요에 따라 값 조절
+}
+
+.docs-content .main-content pre code {
+    padding: 0 2.5rem 0.5rem 2.5rem;
+}
+
+// ========================================
+// Section Dividers & Visual Hierarchy
+// ========================================
+
+// Section dividers (markdown ---)
+.docs-content .main-content hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--gray-300) 20%,
+        var(--gray-300) 80%,
+        transparent
+    );
+    margin: 2.5rem 0;
+}
+
+[data-dark-mode] .docs-content .main-content hr {
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--gray-700) 20%,
+        var(--gray-700) 80%,
+        transparent
+    );
+}
+
+// Header visual hierarchy with accent borders
+.docs-content .main-content h2 {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    padding-left: 0.75rem;
+    border-left: 4px solid var(--primary);
+}
+
+.docs-content .main-content h3 {
+    margin-top: 2rem;
+    padding-top: 1rem;
+}
+
+.docs-content .main-content h4 {
+    margin-top: 1.5rem;
+    padding-top: 0.75rem;
+}
+
+// First h2 after title - reduce top margin
+.docs-content .main-content > h2:first-of-type {
+    margin-top: 1rem;
+    padding-top: 0;
+}
+
+// 같은 섹션 내 연속된 제목들 - 여백 최소화
+.docs-content .main-content h2 + h3,
+.docs-content .main-content h3 + h4,
+.docs-content .main-content h4 + h5 {
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+}
+
+// ========================================
+// 자동 번호 매기기 (h2: 1, 2, 3 / h3: 1.1, 1.2)
+// ========================================
+.docs-content .main-content {
+    counter-reset: h2counter;
+}
+
+.docs-content .main-content h2 {
+    counter-reset: h3counter;
+    counter-increment: h2counter;
+}
+
+.docs-content .main-content h2::before {
+    content: counter(h2counter) ". ";
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.docs-content .main-content h3 {
+    counter-increment: h3counter;
+}
+
+.docs-content .main-content h3::before {
+    content: counter(h2counter) "." counter(h3counter) " ";
+    color: var(--gray-500);
+    font-weight: 600;
+    margin-right: 0.25rem;
+}
+
+// Content block containers with subtle backgrounds
+.docs-content .main-content > ul,
+.docs-content .main-content > ol {
+    background: var(--gray-50);
+    padding: 1rem 1rem 1rem 2.5rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+}
+
+[data-dark-mode] .docs-content .main-content > ul,
+[data-dark-mode] .docs-content .main-content > ol {
+    background: rgba(255, 255, 255, 0.03);
+}

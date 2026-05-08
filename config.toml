@@ -1,0 +1,35 @@
+baseURL = '/'
+languageCode = 'ko-kr'
+title = 'Opencode + Obsidian AI 지식관리'
+contentDir = 'content'
+uglyURLs = false
+cleanDestinationDir = true
+enableEmoji = true
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.140.0"
+  [[module.imports]]
+    path = "github.com/colinwilson/lotusdocs"
+    disable = false
+  [[module.imports]]
+    path = "github.com/gohugoio/hugo-mod-bootstrap-scss/v5"
+    disable = false
+
+[markup]
+  [markup.tableOfContents]
+    endLevel = 4
+    startLevel = 2
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+      hardWraps = true
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+
+[params]
+  [params.docs]
+    prism = true
+    mermaid = true

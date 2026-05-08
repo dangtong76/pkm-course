@@ -1,0 +1,62 @@
+hero:
+  enable: true
+  weight: 10
+  template: hero
+
+  backgroundImage:
+    path: "images/templates/hero"
+    filename:
+      desktop: "gradient-desktop.webp"
+      mobile: "gradient-mobile.webp"
+
+  badge:
+    text: v1.0
+    color: primary
+    pill: false
+    soft: true
+
+  title: "Kubernetes AIOps"
+  subtitle: "쿠버네티스 기반 **AIOps** 실습 교재입니다. Prometheus, Grafana, Loki를 활용한 **모니터링**부터 **이상 탐지**, **자동 장애 대응**, **LLM 통합**까지 학습합니다."
+
+  image:
+    path: "images"
+    filename: "aiops_screenshot.png"
+    alt: "AIOps Dashboard Screenshot"
+    boxShadow: true
+    rounded: true
+
+  ctaButton:
+    icon: rocket_launch
+    btnText: "시작하기"
+    url: "/docs/"
+  cta2Button:
+    icon: school
+    btnText: "커리큘럼"
+    url: "/docs/"
+
+  info: "**Open Source** 기반 AIOps 실습"
+
+featureGrid:
+  enable: true
+  weight: 20
+  template: feature grid
+
+  title: "학습 내용"
+  subtitle: "8일간의 집중 과정을 통해 쿠버네티스 기반 AIOps 파이프라인을 직접 구축합니다."
+
+  items:
+    - title: Observability
+      icon: monitoring
+      description: Prometheus, Grafana, Loki를 활용한 메트릭, 로그 수집 및 시각화
+
+    - title: Anomaly Detection
+      icon: psychology
+      description: Python ML(scikit-learn, Prophet)을 활용한 이상 탐지 구현
+
+    - title: Auto-Remediation
+      icon: autorenew
+      description: KEDA, Argo Events/Workflows를 활용한 자동 장애 대응
+
+    - title: LLM Integration
+      icon: smart_toy
+      description: k8sgpt를 활용한 AI 기반 클러스터 진단 및 ChatOps

@@ -1,0 +1,8 @@
+<div class="answer-block" style="margin: 1rem 0;">
+  <button class="show-answer-btn" onclick="this.nextElementSibling.style.display = (this.nextElementSibling.style.display === 'block' ? 'none' : 'block');">
+    정답 보기
+  </button>
+  <div class="answer-content" style="display: none; margin-top: 0.5rem;">
+    <pre><code class="language-yaml">{{ .Inner | safeHTML }}</code></pre>
+  </div>
+</div> 
