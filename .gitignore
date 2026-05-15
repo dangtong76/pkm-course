@@ -2,6 +2,8 @@
 public/
 resources/_gen/
 .hugo_build.lock
+# Hugo가 빌드할 때 환경별로 자동 생성하는 IDE path 파일
+assets/jsconfig.json
 
 # OS
 .DS_Store
