@@ -1,0 +1,18 @@
+{{- /*
+  pdf-iframe shortcode
+  사용법: {{< pdf-iframe src="05-mcp-integration_v1.0.pdf" >}}
+  - src: static/pdf/ 아래의 파일명 (앞에 / 없이)
+  - height: iframe 높이 (기본 600px)
+  - baseURL을 자동 적용하여 GitHub Pages subpath 배포에서도 동작
+*/ -}}
+{{- $src := .Get "src" -}}
+{{- $height := .Get "height" | default "600px" -}}
+{{- $url := printf "pdf/%s" $src | relURL -}}
+<iframe src="{{ $url }}"
+        width="100%"
+        height="{{ $height }}"
+        style="border: 1px solid #ddd; border-radius: 4px;">
+  PDF를 표시할 수 없습니다. <a href="{{ $url }}">다운로드</a>하세요.
+</iframe>
+
+> 📥 [PDF 다운로드]({{ $url }}) · [전체 화면 보기]({{ $url }})

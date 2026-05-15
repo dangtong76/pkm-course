@@ -14,14 +14,7 @@ draft: false
 
 > 이 챕터의 이론(PKM 가치사슬·검증 대역폭·PARA·제텔카스텐·마크다운·에이전트 생태계)은 아래 슬라이드로 다룹니다. 슬라이드를 먼저 보거나 강의를 들은 뒤 아래 실습으로 넘어가세요.
 
-<iframe src="/pdf/02-methodology.pdf"
-        width="100%"
-        height="600px"
-        style="border: 1px solid #ddd; border-radius: 4px;">
-  PDF를 표시할 수 없습니다. <a href="/pdf/02-methodology.pdf">다운로드</a>하세요.
-</iframe>
-
-> 📥 [PDF 다운로드](/pdf/02-methodology.pdf) · [전체 화면 보기](/pdf/02-methodology.pdf)
+{{< pdf-iframe src="02-methodology.pdf" >}}
 
 ---
 

@@ -14,14 +14,7 @@ draft: false
 
 > 이 챕터의 이론(MCP 개념·아키텍처·왜 필요한가 등)은 아래 슬라이드로 다룹니다.
 
-<iframe src="/pdf/05-mcp-integration_v1.0.pdf"
-        width="100%"
-        height="600px"
-        style="border: 1px solid #ddd; border-radius: 4px;">
-  PDF를 표시할 수 없습니다. <a href="/pdf/05-mcp-integration_v1.0.pdf">다운로드</a>하세요.
-</iframe>
-
-> 📥 [PDF 다운로드](/pdf/05-mcp-integration_v1.0.pdf) · [전체 화면 보기](/pdf/05-mcp-integration_v1.0.pdf)
+{{< pdf-iframe src="05-mcp-integration_v1.0.pdf" >}}
 
 ---
 
