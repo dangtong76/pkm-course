@@ -136,17 +136,20 @@
     {{ $len := (len $list) -}}
 
     {{ range $index, $element := $list -}}
+        {{- $description := "" -}}
+        {{- with .Description -}}
+            {{- $description = . -}}
+        {{- else -}}
+            {{- $description = .Title -}}
+        {{- end -}}
+        {{- $content := .RawContent | plainify | htmlUnescape | truncate 8000 -}}
         index.add(
             {
                 id: {{ $index }},
                 href: "{{ .RelPermalink }}",
-                title: {{ .Title }},
-                {{ with .Description -}}
-                    description: {{ . }},
-                {{ else -}}
-                description: {{ .Summary | htmlUnescape | plainify }},
-                {{ end -}}
-                content: {{ .Content | htmlUnescape | plainify }}
+                title: {{ .Title | jsonify }},
+                description: {{ $description | plainify | jsonify }},
+                content: {{ $content | jsonify }}
             }
         );
     {{ end -}}

@@ -15,6 +15,7 @@
     --blockquote-border-color: var(--gray-300);
 
     --code-block-bg: #212d63;
+    --code-block-color: #f5fbff;
     --inline-code-bg: var(--gray-100);
     --inline-code-border: 1px solid var(--gray-400);
 
@@ -32,6 +33,7 @@
     --blockquote-border-color: var(--primary-200);
 
     --code-block-bg: var(--gray-900);
+    --code-block-color: #f5fbff;
     --inline-code-bg: var(--gray-800);
     --inline-code-border: 1px solid var(--gray-600);
 
@@ -317,10 +319,10 @@ i {
     padding: $code-block-padding-top;
 
     code {
-        // color: #f5fbff;
+        color: var(--code-block-color);
         font-size: 0.8rem;
         display: block;
-        // background: var(--code-block-bg);
+        background: transparent;
         border: none;
         overflow-x: auto;
         line-height: 1.5;

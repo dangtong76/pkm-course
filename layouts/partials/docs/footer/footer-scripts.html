@@ -39,19 +39,12 @@
 <!-- Bootstrap JS -->
 {{ $js := resources.Get (printf "/%s/%s" ($.Scratch.Get "pathName") "js/bootstrap.js") }}
 {{ $params := dict }}
-{{ $sourceMap := cond hugo.IsProduction "" "inline" }}
-{{ $opts := dict "sourceMap" $sourceMap "minify" hugo.IsProduction "target" "es2018" "params" $params }}
+{{ $opts := dict "sourceMap" "" "minify" true "target" "es2018" "params" $params }}
 {{ $js = $js | js.Build $opts }}
-{{ if hugo.IsProduction }}
-    {{ $js = $js | fingerprint "sha384" }}
-{{ end }}
-    <script src="{{ $js.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $js.Data.Integrity }}"{{ end -}} defer></script>
+{{ $js = $js | fingerprint "sha384" }}
+    <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
 
 {{ $js := $slice | resources.Concat (printf "/%s/%s" ($.Scratch.Get "pathName") "js/bundle.js") -}}
 
-{{- if not hugo.IsServer }}
-    {{- $js := $js | minify | fingerprint "sha384" }}
-    <script type="text/javascript" src="{{ $js.Permalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous" defer></script>
-{{- else }}
-    <script type="text/javascript" src="{{ $js.Permalink }}" defer></script>
-{{- end }}
+{{- $js = $js | minify | fingerprint "sha384" }}
+<script type="text/javascript" src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous" defer></script>

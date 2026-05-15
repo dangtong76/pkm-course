@@ -28,18 +28,6 @@ draft: false
   </div>
 </div>
 
-<!-- PDF가 준비되면 위 placeholder를 아래 iframe으로 교체:
-<iframe src="/pdf/01-env-setup.pdf"
-        width="100%"
-        height="600px"
-        style="border: 1px solid #ddd; border-radius: 4px;">
-  PDF를 표시할 수 없습니다. <a href="/pdf/01-env-setup.pdf">다운로드</a>하세요.
-</iframe>
-
-> 📥 [PDF 다운로드](/pdf/01-env-setup.pdf) · [전체 화면 보기](/pdf/01-env-setup.pdf)
--->
-
-
 ---
 
 ## 📚 학습 목표
@@ -158,11 +146,69 @@ irm https://opencode.ai/install.ps1 | iex
 choco install opencode
 ```
 
+> 💡 Chocolatey가 설치되어 있지 않다면 [설치 가이드](https://chocolatey.org/install)를 먼저 참고하세요.
+
 **방법 3: Scoop**
 ```powershell
 scoop bucket add extras
 scoop install opencode
 ```
+
+**방법 4: Node.js + npm (사내망/보안 정책 환경에서 실전 권장) ⭐**
+
+Windows에서 PowerShell 설치 스크립트나 Chocolatey/Scoop이 **사내 보안 정책·SSL 검사·실행 정책**으로 막히는 경우가 많습니다. 이때는 **Node.js를 먼저 설치하고 npm으로 opencode를 설치하는 경로가 가장 안정적**입니다.
+
+**1. Node.js 설치**
+
+[nodejs.org/ko/download](https://nodejs.org/ko/download)에서 **LTS 버전**(녹색 표시) 다운로드 → 설치 마법사 실행. 기본 옵션 그대로 두면 됩니다.
+
+> 💡 설치 마법사 중 *"Add to PATH"* 체크박스가 보이면 **반드시 체크된 상태**로 둡니다 (기본값 체크됨).
+
+**2. npm 경로가 PATH에 잡혔는지 확인**
+
+설치 후 **새 PowerShell 창**(기존 창은 PATH 갱신 안 됨)을 열고:
+
+```powershell
+node --version
+npm --version
+```
+
+둘 다 버전이 출력되면 다음 단계로. 한쪽이라도 *"명령을 찾을 수 없습니다"* 가 뜨면 PATH 수동 추가가 필요합니다.
+
+**2-A. PATH 수동 추가 (위에서 명령을 못 찾을 때만)**
+
+1. `Win + R` → `sysdm.cpl` 입력 → **Enter**
+2. **고급** 탭 → **환경 변수(N)...** 클릭
+3. *시스템 변수* 또는 *사용자 변수*의 `Path` 선택 → **편집(E)...**
+4. **새로 만들기(N)** 로 다음 두 경로 추가:
+
+   ```text
+   C:\Program Files\nodejs\
+   %APPDATA%\npm
+   ```
+
+   > `%APPDATA%\npm`은 보통 `C:\Users\<사용자명>\AppData\Roaming\npm`로 펼쳐집니다. npm으로 글로벌 설치한 CLI(`opencode` 포함)는 모두 이 폴더에 들어갑니다.
+
+5. **확인** 3번 누르고 모든 PowerShell 창을 닫은 뒤 **새 창**에서 `node --version` 재시도
+
+**3. opencode 설치**
+
+```powershell
+npm install -g opencode-ai
+```
+
+설치가 끝나면:
+
+```powershell
+opencode --version
+```
+
+버전이 출력되면 완료.
+
+> 💡 **왜 이 방법이 잘 되나?**
+> - PowerShell `irm | iex`는 SSL 인증서 검사·실행 정책(`ExecutionPolicy`)에서 막히기 쉬움
+> - Chocolatey/Scoop은 별도 부트스트랩이 필요하고 사내 프록시에서 거부되는 경우가 있음
+> - **npm은 Node.js만 있으면 동작**하고, 사내 프록시도 NPM 레지스트리는 통과시키는 편이라 가장 안정적
 
 > 💡 **Windows 팁**: WSL(Windows Subsystem for Linux)을 사용하면 macOS/Linux와 동일한 명령어를 사용할 수 있습니다.
 

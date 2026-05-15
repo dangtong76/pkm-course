@@ -1,5 +1,15 @@
 <meta property="og:title" content="{{ .Title }}" />
-<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
+{{- $description := "" -}}
+{{- with .Description -}}
+  {{- $description = . -}}
+{{- else -}}
+  {{- with .Site.Params.description -}}
+    {{- $description = . -}}
+  {{- else -}}
+    {{- $description = .Title -}}
+  {{- end -}}
+{{- end -}}
+<meta property="og:description" content="{{ $description | plainify }}" />
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 

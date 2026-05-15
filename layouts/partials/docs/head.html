@@ -45,13 +45,8 @@
     {{ if or (not (isset .Site.Params.flexsearch "enabled")) (eq .Site.Params.flexsearch.enabled true) -}}
         {{ if and (.Site.Params.docsearch.appID) (.Site.Params.docsearch.apiKey) -}}
         {{ else }}
-            {{ $flexSearch := resources.Get (printf "/%s/%s" ($.Scratch.Get "pathName") "js/flexsearch.bundle.js") }}
-            {{- if not hugo.IsServer }}
-                {{ $flexSearch := $flexSearch | minify | fingerprint "sha384" }}
-                <script type="text/javascript" src="{{ $flexSearch.Permalink }}" integrity="{{ $flexSearch.Data.Integrity }}" crossorigin="anonymous"></script>
-                {{ else }}
-                <script type="text/javascript" src="{{ $flexSearch.Permalink }}"></script>
-            {{ end }}
+            {{ $flexSearch := resources.Get (printf "/%s/%s" ($.Scratch.Get "pathName") "js/flexsearch.bundle.js") | minify | fingerprint "sha384" }}
+            <script type="text/javascript" src="{{ $flexSearch.RelPermalink }}" integrity="{{ $flexSearch.Data.Integrity }}" crossorigin="anonymous"></script>
         {{ end }}
     {{ end }}
     <!-- Google Fonts -->
@@ -63,10 +58,8 @@
     {{- end }}
     {{- $style := resources.Get (printf "/%s/%s" ($.Scratch.Get "pathName") "scss/style.scss") }}
     {{- $style = $style | resources.ExecuteAsTemplate (printf "/%s/%s" ($.Scratch.Get "pathName") "scss/style.scss") . | css.Sass $options }}
-    {{- if hugo.IsProduction }}
-        {{- $style = $style | minify | fingerprint "sha384" }}
-    {{- end -}}
-    <link rel="stylesheet" href="{{ $style.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $style.Data.Integrity }}"{{ end -}} crossorigin="anonymous">
+    {{- $style = $style | minify | fingerprint "sha384" }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" crossorigin="anonymous">
     <!-- Katex CSS -->
     {{- if .Params.katex -}}
     {{- $options := dict "enableSourceMap" true }}
