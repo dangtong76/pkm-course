@@ -344,19 +344,20 @@ GLOBAL AGENTS.md와 어떻게 다른가?
 
 ### 2.1 Top-level Folder Map
 
-| 폴더 | 용도 |
-|------|------|
-| `00-System/` | 시스템 (Dashboard, MOCs, Templates, external symlinks) |
-| `01-Inbox/` | 임시 수집 (메일·클리핑·raw drop·RSS·미팅 등 다중 채널) |
-| `02-Areas/` | 지속적 관심 영역 (Health, People, Personal, Work) |
-| `03-Projects/` | 프로젝트 (`Inprogress/{##-name}/`, `Completed/{##-name}/`) |
-| `04-Resources/` | 미사용 (정리 대기) |
-| `05-Archive/` | 비활성 항목 |
-| `06-Daily/` | Daily notes (`{YYYY}/{YYYY-MM}/`) |
-| `07-Knowledge/` | LLM Wiki 지식 베이스 (자체 AGENTS.md) |
-| `98-Excalidraw/` | Excalidraw 그림 파일 |
-| `99-Attachments/` | 원본 파일 (`linked-files/` symlink) |
-| `RSS articles/` | 미사용 (정리 대기) |
+
+| 폴더              | 용도                                                       |
+| ------------------- | ------------------------------------------------------------ |
+| `00-System/`      | 시스템 (Dashboard, MOCs, Templates, external symlinks)     |
+| `01-Inbox/`       | 임시 수집 (메일·클리핑·raw drop·RSS·미팅 등 다중 채널) |
+| `02-Areas/`       | 지속적 관심 영역 (Health, People, Personal, Work)          |
+| `03-Projects/`    | 프로젝트 (`Inprogress/{##-name}/`, `Completed/{##-name}/`) |
+| `04-Resources/`   | 미사용 (정리 대기)                                         |
+| `05-Archive/`     | 비활성 항목                                                |
+| `06-Daily/`       | Daily notes (`{YYYY}/{YYYY-MM}/`)                          |
+| `07-Knowledge/`   | LLM Wiki 지식 베이스 (자체 AGENTS.md)                      |
+| `98-Excalidraw/`  | Excalidraw 그림 파일                                       |
+| `99-Attachments/` | 원본 파일 (`linked-files/` symlink)                        |
+| `RSS articles/`   | 미사용 (정리 대기)                                         |
 
 ### 2.2 Excluded folders (이 AGENTS.md 미적용)
 - `00-System/agents/`, `00-System/opencode/`, `99-Attachments/`
@@ -380,11 +381,12 @@ GLOBAL AGENTS.md와 어떻게 다른가?
 
 ### 3.3 External Symlinks
 
-| Vault path | 실제 위치 | 비고 |
-|-----------|---------|-----|
-| `00-System/agents/` | Google Drive (cloud sync) | 다중 기기 공유 |
-| `00-System/opencode/` | 로컬 shortcut | OpenCode 설정 빠른 접근 |
-| `99-Attachments/linked-files/` | Google Drive (cloud sync) | 원본 파일 저장소 |
+
+| Vault path                     | 실제 위치                 | 비고                    |
+| -------------------------------- | --------------------------- | ------------------------- |
+| `00-System/agents/`            | Google Drive (cloud sync) | 다중 기기 공유          |
+| `00-System/opencode/`          | 로컬 shortcut             | OpenCode 설정 빠른 접근 |
+| `99-Attachments/linked-files/` | Google Drive (cloud sync) | 원본 파일 저장소        |
 
 - 큰 파일 작업 시 cloud sync 영향 인지
 - 절대 경로는 stale 위험으로 명시 X — 필요 시 `readlink` 확인
@@ -406,6 +408,7 @@ GLOBAL AGENTS.md와 어떻게 다른가?
 
 ### 4.1 작성 절차
 - 한 번에 전체 작성 X — 점진적 진행
+- 작성시 obsidian skill 사용할것
 - 절차:
   1. 목차·아젠다·소제목 구성안 먼저 제시
   2. 사용자 확인·수정 반영
@@ -419,11 +422,12 @@ GLOBAL AGENTS.md와 어떻게 다른가?
 
 ### 5.1 3종 분산 원칙
 
-| 콘텐츠 | 위치 | 역할 |
-|--------|------|------|
-| 강의 원본 (영상/PDF/슬라이드 등) | `99-Attachments/linked-files/` (type별 분류) | raw |
-| 강의 진행 활동 (lesson 노트, 진도, 회고) | `02-Areas/Personal/Education/{강의명}/` | action |
-| 강의에서 추출한 atomic 개념 | `07-Knowledge/{도메인}/{개념}.md` | knowledge |
+
+| 콘텐츠                                   | 위치                                         | 역할      |
+| ------------------------------------------ | ---------------------------------------------- | ----------- |
+| 강의 원본 (영상/PDF/슬라이드 등)         | `99-Attachments/linked-files/` (type별 분류) | raw       |
+| 강의 진행 활동 (lesson 노트, 진도, 회고) | `02-Areas/Personal/Education/{강의명}/`      | action    |
+| 강의에서 추출한 atomic 개념              | `07-Knowledge/{도메인}/{개념}.md`            | knowledge |
 
 ### 5.2 02-Areas/Personal/Education 운영
 - 일반 PARA Area — 자유 구조
