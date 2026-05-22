@@ -1,7 +1,7 @@
 ---
-title: "06. 콘텐츠 캡처 자동화 (Web + Video)"
-weight: 6
-date: 2026-05-10
+title: "07. 콘텐츠 캡처 자동화 (Web + Video)"
+weight: 7
+date: 2026-05-22
 draft: false
 ---
 
@@ -21,7 +21,7 @@ draft: false
   </div>
   <div style="font-size: 14px; color: #64748b; margin-bottom: 16px;">
     이론 슬라이드는 별도 PDF로 제공될 예정입니다.<br>
-    PDF 파일을 받으셨다면 <code style="background:#e2e8f0;padding:2px 6px;border-radius:4px;">static/pdf/06-web-clipper.pdf</code> 위치에 저장해 주세요.
+    PDF 파일을 받으셨다면 <code style="background:#e2e8f0;padding:2px 6px;border-radius:4px;">static/pdf/07-web-clipper.pdf</code> 위치에 저장해 주세요.
   </div>
   <div style="font-size: 12px; color: #94a3b8;">
     PDF가 추가되면 이 자리에 자동으로 슬라이드가 표시됩니다.
@@ -866,4 +866,4 @@ YouTube Summary의 우측 `Summary` 탭은 ChatGPT/Claude API 키를 확장 Sett
 
 raw 자료가 들어오는 라인을 갖췄다면, 이제 그 자료를 **체계적으로 정제·운영**할 차례입니다.
 
-**다음 챕터**: [07. LLM Wiki]({{< ref "07-llm-wiki" >}}) — Karpathy LLM Wiki 패턴 기반 지식 베이스 운영
+**다음 챕터**: [08. LLM Wiki]({{< ref "08-llm-wiki" >}}) — Karpathy LLM Wiki 패턴 기반 지식 베이스 운영
