@@ -2279,5 +2279,5 @@ Get-Content $HOME/.config/opencode/skills/vault-audit/samples/powershell/run-all
 
 Part B로 *반복 동작*과 *정제*를 Command로 만들었다면, Part C는 *script 번들이 진가인* Skill로 들어갑니다. Vault 첫 *건강 검진*을 자기 눈으로 봅니다.
 
-**다음 챕터**: [06. Agent Harness ② — Agent(@) · Hook]({{< ref "06-agent-harness-2" >}}) — opencode의 *인격·자동화 2축* + 5축 통합
+**다음 챕터**: **06. Agent Harness ② — Agent(@) · Hook** *(작성 예정)* — opencode의 *인격·자동화 2축* + 5축 통합
 
