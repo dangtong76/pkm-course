@@ -12,9 +12,9 @@ draft: false
 
 ## 📄 이론 슬라이드
 
-> 이 챕터의 이론은 아래 슬라이드로 다룹니다.
->
-> *(슬라이드 모듈 `hermes-agent/v1.0` — 작성 예정)*
+> 이 챕터의 이론(Hermes 핵심 원리·SOUL·메모리·skill·self-evolving·멀티에이전트 등)은 아래 슬라이드로 다룹니다.
+
+{{< pdf-iframe src="09-agent-md-hermes-core-theory_v1.0.pdf" >}}
 
 ---
 
